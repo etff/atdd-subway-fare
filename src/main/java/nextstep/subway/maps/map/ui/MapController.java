@@ -23,9 +23,9 @@ public class MapController {
 
     @GetMapping("/paths")
     public ResponseEntity<PathResponse> findPath(@RequestParam Long source, @RequestParam Long target,
-                                                 @RequestParam PathType type, @AuthenticationPrincipal UserDetails loginMember) {
+                                                 @RequestParam PathType type, @AuthenticationPrincipal UserDetails userDetails) {
 
-        return ResponseEntity.ok(mapService.findPath(source, target, type , loginMember));
+        return ResponseEntity.ok(mapService.findPath(source, target, type , userDetails));
     }
 
     @GetMapping("/maps")
